@@ -190,5 +190,14 @@ module.exports = {
       let options = instructions.split(' or ')
       yuki.chatMessage(room, chooseRandomFrom(options))
     }
+  },
+  
+  'roll': function(instructions, audience, room, yuki) {
+		let number = parseInt(instructions.slice(-1))
+		if(isNaN(number)){
+			yuki.chatMessage(room, 'Not a number')
+		} else {
+			yuki.chatMessage(room, '' + (1 + Math.floor(Math.random() * number)))
+		}
   }
 }
